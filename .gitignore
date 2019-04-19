@@ -3,3 +3,4 @@
 awx
 *.tfstate*
 *.ini
+kubeconfig
