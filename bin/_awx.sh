@@ -2,10 +2,6 @@
 set -e
 SCRIPT_PATH=$(dirname "$0")
 SCRIPT_PATH=$(eval "cd \"$SCRIPT_PATH\" && pwd")
-panic() {
-  echo $1
-  exit 1
-}
 cd "${SCRIPT_PATH}/.."
 
 if ! [ -d "awx" ]; then
@@ -18,4 +14,4 @@ git checkout 4.0.0
 
 export KUBECONFIG="${SCRIPT_PATH}/../kubeconfig"
 
-ansible-playbook -i ${SCRIPT_PATH}/../inventory.ini ${SCRIPT_PATH}/../awx/installer/install.yml 
+ansible-playbook -i ${SCRIPT_PATH}/../inventory.ini ${SCRIPT_PATH}/../awx/installer/install.yml
