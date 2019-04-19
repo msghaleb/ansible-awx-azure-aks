@@ -2,3 +2,4 @@
 *.tfvars
 awx
 *.tfstate*
+*.ini

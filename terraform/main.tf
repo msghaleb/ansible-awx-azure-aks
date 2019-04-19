@@ -3,12 +3,12 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "k8s" {
-  name     = "${var.resource_group_name}"
+  name     = "${var.deployment_name}${var.resource_group_name}"
   location = "${var.location}"
 }
 
 resource "azurerm_log_analytics_workspace" "test" {
-  name                = "${var.log_analytics_workspace_name}"
+  name                = "${var.deployment_name}${var.log_analytics_workspace_name}"
   location            = "${var.log_analytics_workspace_location}"
   resource_group_name = "${azurerm_resource_group.k8s.name}"
   sku                 = "${var.log_analytics_workspace_sku}"

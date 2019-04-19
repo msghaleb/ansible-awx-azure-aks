@@ -15,3 +15,7 @@ fi
 cd awx
 git fetch
 git checkout 4.0.0
+
+export KUBECONFIG="${SCRIPT_PATH}/../kubeconfig"
+
+ansible-playbook -i ${SCRIPT_PATH}/../inventory.ini ${SCRIPT_PATH}/../awx/installer/install.yml 
