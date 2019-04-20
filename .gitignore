@@ -4,3 +4,4 @@ awx
 *.tfstate*
 *.ini
 kubeconfig
+statebackend.tf
