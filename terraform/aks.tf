@@ -31,6 +31,9 @@ resource "azurerm_kubernetes_cluster" "k8s" {
       enabled                    = true
       log_analytics_workspace_id = "${azurerm_log_analytics_workspace.test.id}"
     }
+    http_application_routing {
+      enabled = true
+    }
   }
 
   tags {
@@ -39,6 +42,6 @@ resource "azurerm_kubernetes_cluster" "k8s" {
 }
 
 resource "local_file" "kubeconfig" {
-    content     = "${azurerm_kubernetes_cluster.k8s.kube_config_raw}"
-    filename = "${path.module}/../kubeconfig"
+    sensitive_content     = "${azurerm_kubernetes_cluster.k8s.kube_config_raw}"
+    filename              = "${path.module}/../kubeconfig"
 }

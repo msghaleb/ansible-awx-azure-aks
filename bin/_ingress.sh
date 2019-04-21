@@ -6,6 +6,5 @@ cd "${SCRIPT_PATH}/.."
 
 export KUBECONFIG="${SCRIPT_PATH}/../kubeconfig"
 
-helm init
-
+helm init --wait
 helm install stable/nginx-ingress --namespace awx --set controller.replicaCount=2 --set rbac.create=false

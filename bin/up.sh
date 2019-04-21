@@ -13,5 +13,7 @@ command -v kubectl || panic "kubectl is required, but not installed or not in yo
 command -v helm || panic "helm is required, but not installed or not in your path"
 
 "${SCRIPT_PATH}/_run_terraform.sh"
+sleep 5
 "${SCRIPT_PATH}/_awx.sh"
-#"${SCRIPT_PATH}/_ingress.sh"
+sleep 5
+"${SCRIPT_PATH}/_ingress.sh"
